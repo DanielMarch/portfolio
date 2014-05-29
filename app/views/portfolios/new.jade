@@ -1,0 +1,71 @@
+extends ../shared/template
+
+block content
+  .container
+    .row.clearfix
+        .col-md-12.column
+          nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top(role='navigation')
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              a.navbar-brand(href='/') Home
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='/about') About
+                li
+                  a(href='/faq') FAQ
+                li
+                  a(href='/contact') Contact
+                li
+                  a(href='/resume') Resume
+                li
+                  a(href='/portfolio') Portfolio
+              if(user)
+                ul.nav.navbar-nav.navbar-right
+                  if(user)
+                    li
+                      a(href='/logout')= user.email
+                    li.active
+                      a(href='/portfolio/new') New Project
+
+  .container
+    .row.clearfix
+      .col-md-4.column
+      .col-md-4.column
+        form(action='/portfolio', method='post', enctype='multipart/form-data')
+          .form-group
+            label Title
+            input.form-control(type='text', name='title', placeholder='Title')
+          .form-group
+            label Description
+            input.form-control(type='text', name='description', placeholder='Description')
+          .form-group
+            label Tags
+            input.form-control(type='text', name='tags', placeholder='Tags')
+          .form-group
+            label Git Url
+            input.form-control(type='text', name='git', placeholder='Git URL')
+          .form-group
+            label App Url
+            input.form-control(type='text', name='git', placeholder='App URL')
+          .form-group
+            label Date
+            input.form-control(type='date', name='date')
+          .form-group
+            label Date
+            input.form-control(type='file', name='photo', multiple=true)
+          button.btn.btn-default Add Project
+      .col-md-4.column
+
+//-   form(action='/portfolio', method='post', enctype='multipart/form-data')
+//-     input(type='text', name='title', placeholder='Title')
+//-     textarea(name='description', placeholder='Description')
+//-     input(type='text', name='tags', placeholder='Tags')
+//-     input(type='text', name='git', placeholder='Git URL')
+//-     input(type='text', name='app', placeholder='App URL')
+//-     input(type='date', name='date')
+//-     input(type='file', name='photo', multiple=true)
+//-     button Add Project
+//-
+//- block scripts
+//-   script(src='/js/es6/compiled/new-project.js')

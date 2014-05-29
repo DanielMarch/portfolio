@@ -1,0 +1,65 @@
+extends ../shared/template
+
+block content
+  .container
+    .row.clearfix
+        .col-md-12.column
+          nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top(role='navigation')
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              a.navbar-brand(href='/') Home
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='/about') About
+                li.active
+                  a(href='/faq') FAQ
+                li
+                  a(href='/contact') Contact
+                li
+                  a(href='/resume') Resume
+                li
+                  a(href='/portfolio') Portfolio
+              if(user)
+                ul.nav.navbar-nav.navbar-right
+                  if(user)
+                    li
+                      a(href='/logout')= user.email
+                    li
+                      a(href='/portfolio/new') New Project
+              if(!user)
+                ul.nav.navbar-nav.navbar-right
+                  li
+                    a(href='/login') Login
+  .container.banner
+    .row.clearfix
+        .col-md-12.column
+          .page-header
+            h1
+              | A Few Questions
+              small ...and answers
+          #panel-63472.panel-group
+            .panel.panel-default
+              .panel-heading
+                a.panel-title.collapsed(data-toggle='collapse', data-parent='#panel-63472', href='#panel-element-838637') What is your education level?
+              #panel-element-838637.panel-collapse.collapse
+                .panel-body
+                  | I was educated in an intensive, 6 month bootcamp at Nashville Software School. I have also been pursuing a BS in Information Systems Security. I also rely on the dicipline and structure I received in the military.
+            .panel.panel-default
+              .panel-heading
+                a.panel-title.collapsed(data-toggle='collapse', data-parent='#panel-63472', href='#panel-element-176631') What is your experience?
+              #panel-element-176631.panel-collapse.collapse
+                .panel-body
+                  | During class, my experience has primarily been in Javascript, Node.js, Mongo Db.
+            .panel.panel-default
+              .panel-heading
+                a.panel-title.collapsed(data-toggle='collapse', data-parent='#panel-63472', href='#panel-element-123456') What is your level of involvement with the development community?
+              #panel-element-123456.panel-collapse.collapse
+                .panel-body
+                  | Active, You will see me at various Meetup groups around town including Javascript xTreme, Nash JS and a various Hack-A-Thons in town.
+            .panel.panel-default
+              .panel-heading
+                a.panel-title.collapsed(data-toggle='collapse', data-parent='#panel-63472', href='#panel-element-123457') What interests you in programming?
+              #panel-element-123457.panel-collapse.collapse
+                .panel-body
+                  | The puzzle and problem solving aspect is intruging to me. As a former intelligence analyst, I am drawn to the unknown, and discovering new things.

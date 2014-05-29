@@ -1,5 +1,71 @@
 extends ../shared/template
 
 block content
-  h1 Node.js Template
-  a.button.button-3d-highlight.button-circle(href='/help') Help
+  .container
+    .row.clearfix
+        .col-md-12.column
+          nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top(role='navigation')
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              a.navbar-brand(href='/') Home
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='/about') About
+                li
+                  a(href='/faq') FAQ
+                li
+                  a(href='/contact') Contact
+                li
+                  a(href='/resume') Resume
+                li
+                  a(href='/portfolio') Portfolio
+              if(user)
+                ul.nav.navbar-nav.navbar-right
+                  if(user)
+                    li
+                      a(href='/logout')= user.email
+                    li
+                      a(href='/portfolio/new') New Project
+              if(!user)
+                ul.nav.navbar-nav.navbar-right
+                  li
+                    a(href='/login') Login
+  .container.banner
+    .row.clearfix
+        .col-md-12.column
+          .page-header
+            h1
+              | A Portfolio of Design
+              small By Seth March
+          #carousel-689444.carousel.slide
+            ol.carousel-indicators
+              li.active(data-slide-to='0', data-target='#carousel-689444')
+              li(data-slide-to='1', data-target='#carousel-689444')
+              li(data-slide-to='2', data-target='#carousel-689444')
+            .carousel-inner
+              .item.active
+                img(alt='', src='img/slider1.png')
+                .carousel-caption
+                  h4
+                    | Creative
+                  p
+                    | Looking for new ways to push the limits of my own ability to create the best experience to the best of my ability.
+              .item
+                img(alt='', src='img/slider2.png')
+                .carousel-caption
+                  h4
+                    | Technology
+                  p
+                    | Learning and applying the latest technologies to deliever the best user experience possible.
+              .item
+                img(alt='', src='img/slider3.png')
+                .carousel-caption
+                  h4
+                    | Learning Management
+                  p
+                    | At all times understanding my own limitations to direct my efforts in improving my work.
+            a.left.carousel-control(href='#carousel-689444', data-slide='prev')
+              span.glyphicon.glyphicon-chevron-left
+            a.right.carousel-control(href='#carousel-689444', data-slide='next')
+              span.glyphicon.glyphicon-chevron-right

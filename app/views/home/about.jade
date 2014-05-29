@@ -1,0 +1,41 @@
+extends ../shared/template
+
+block content
+  .container
+    .row.clearfix
+        .col-md-12.column
+          nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top(role='navigation')
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              a.navbar-brand(href='/') Home
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li.active
+                  a(href='/about') About
+                li
+                  a(href='/faq') FAQ
+                li
+                  a(href='/contact') Contact
+                li
+                  a(href='/resume') Resume
+                li
+                  a(href='/portfolio') Portfolio
+              if(user)
+                ul.nav.navbar-nav.navbar-right
+                  if(user)
+                    li
+                      a(href='/logout')= user.email
+                    li
+                      a(href='/portfolio/new') New Project
+              if(!user)
+                ul.nav.navbar-nav.navbar-right
+                  li
+                    a(href='/login') Login
+
+  .container
+    .row.clearfix
+        .col-md-6.column
+          img.profilepic(src='/img/profile.jpg')
+        .col-md-6.column
+          p.bio
+            | My name is Seth March and I am an aspiring Web Developer in training at the Nashville Software School. I graduated High School in 2005 and joined the US Army in 2007. While in the military, I was a Signals Intelligence Analyst assigned to the National Security Agency at Fort Meade and served a tour in Iraq. After my enlistment was up, I continued working for the Agency as a contractor and worked at Fort Gordon for a year and spent 2 years in Afghanistan. I am the oldest of six brothers and have 3 children of my own along with a beautiful wife. I love playing bass guitar, hunting, shooting and gaming. My drive for becoming a web developer stems from my years of experience in critical thinking and problem solving and transitioning my skills to a civilian career.

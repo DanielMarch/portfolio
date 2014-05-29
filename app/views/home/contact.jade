@@ -1,0 +1,58 @@
+extends ../shared/template
+
+block content
+  .container
+    .row.clearfix
+        .col-md-12.column
+          nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top(role='navigation')
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              a.navbar-brand(href='/') Home
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='/about') About
+                li
+                  a(href='/faq') FAQ
+                li.active
+                  a(href='/contact') Contact
+                li
+                  a(href='/resume') Resume
+                li
+                  a(href='/portfolio') Portfolio
+              if(user)
+                ul.nav.navbar-nav.navbar-right
+                  if(user)
+                    li
+                      a(href='/logout')= user.email
+                    li
+                      a(href='/portfolio/new') New Project
+              if(!user)
+                ul.nav.navbar-nav.navbar-right
+                  li
+                    a(href='/login') Login
+  .container
+    .row.clearfix
+        .col-md-6.column
+          .jumbotron
+            h1
+              | Hello!
+            p
+              | If you've found yourself on this page and wish to contact me, you can do so and I will get right back to you.
+          blockquote
+            p
+              | Nothing says regret like the email address you made as a kid.
+            small Unknown
+        .col-md-6.column
+          address
+            strong S. March
+            br
+            | 110 Hermitage Dr
+            br
+            | Smyrna, TN 37167
+            br
+            abbr(title='Phone') P:
+            | (517) 897-2265
+            br
+            abby(title='Email') E:
+            | seth.d.march@gmail.com
