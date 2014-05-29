@@ -19,17 +19,21 @@ function load(app, fn){
   var portfolios = traceur.require(__dirname + '/../routes/portfolios.js');
 
   app.all('*', dbg, users.lookup);
+
   app.get('/', dbg, home.index);
   app.get('/about', dbg, home.about);
   app.get('/faq', dbg, home.faq);
   app.get('/contact', dbg, home.contact);
   app.get('/resume', dbg, home.resume);
+
   app.get('/login', dbg, users.login);
   app.post('/login', dbg, users.authenticate);
-  app.get('/portfolio', dbg, portfolios.index);
   app.get('/logout', dbg, users.logout);
+
+  app.get('/portfolio', dbg, portfolios.index);
   app.get('/portfolio/new', dbg, portfolios.new);
   app.post('/portfolio', dbg, portfolios.create);
+  app.post('/portfolio/:id/delete', dbg, portfolios.destroy);
   console.log('Routes Loaded');
   fn();
 }

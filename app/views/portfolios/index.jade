@@ -10,6 +10,9 @@ block content
             dl
               a.btn.codelink(href='#{project.git}', type='button') #{project.title} Code
               dd= project.description
+              if(user)
+                form(action='/portfolio/#{project._id}/delete', method='POST')
+                  button.btn.btn-default Delete
 
             .container
               .row.clearfix

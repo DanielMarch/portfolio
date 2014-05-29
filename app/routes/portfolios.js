@@ -1,18 +1,25 @@
 'use strict';
 
+var Mongo = require('mongodb');
 var multiparty = require('multiparty');
 var projects = global.nss.db.collection('projects');
 var fs = require('fs');
 
 exports.index = (req, res)=>{
   projects.find().toArray((err,projects)=>{
-    console.log(projects);
     res.render('portfolios/index', {projects:projects, title: 'Portfolio'});
   });
 };
 
 exports.new = (req, res)=>{
   res.render('portfolios/new', {title: 'New Item'});
+};
+
+exports.destroy = (req, res)=>{
+  var _id = Mongo.ObjectID(req.params.id);
+  projects.findAndRemove({_id:_id}, (err, record)=>{
+    res.redirect('/portfolio');
+  });
 };
 
 exports.create = (req, res)=>{
